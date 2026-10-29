@@ -1,0 +1,270 @@
+/* 1. Our colour palette */
+:root {
+  --forest: #203d32;
+  --moss: #627b56;
+  --sage: #dfe7d7;
+  --cream: #f7f5ee;
+  --white: #fffefa;
+  --text: #26352d;
+  --muted: #777d70;
+  --border: #dedfd3;
+}
+
+/* 2. Basic page setup */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* 3. Header */
+#site-header {
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#site-header h1 {
+  margin: 0;
+  color: var(--forest);
+  font-size: 25px;
+}
+
+#site-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 4. Main page sections */
+main {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+#search-section {
+  padding: 65px 0 45px;
+  text-align: center;
+}
+
+#search-section h2,
+#gallery-section h2 {
+  color: var(--forest);
+}
+
+#search-section h2 {
+  margin-bottom: 8px;
+  font-size: clamp(28px, 5vw, 42px);
+}
+
+#search-section > p {
+  color: var(--muted);
+}
+
+/* 5. Search form */
+#search-form {
+  max-width: 650px;
+  margin: 28px auto 0;
+  padding: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(32, 61, 50, 0.08);
+}
+
+#search-form label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+}
+
+#search-form:focus-within {
+  border-color: var(--moss);
+  box-shadow: 0 0 0 3px rgba(98, 123, 86, 0.15);
+}
+
+#search-button {
+  padding: 13px 23px;
+  border: none;
+  border-radius: 9px;
+  background: var(--forest);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#search-button:hover {
+  background: var(--moss);
+  transform: translateY(-1px);
+}
+
+/* 6. Topic suggestion chips */
+#quick-picks {
+  margin-top: 22px;
+}
+
+#quick-picks p {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.chip {
+  margin: 4px;
+  padding: 8px 15px;
+  border: 1px solid #d4ddcc;
+  border-radius: 30px;
+  background: transparent;
+  color: var(--forest);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chip:hover {
+  background: var(--sage);
+}
+
+/* 7. Gallery and result count */
+#gallery-section {
+  padding: 35px 0 70px;
+  border-top: 1px solid var(--border);
+}
+
+#gallery-section h2 {
+  margin-bottom: 5px;
+  font-size: 29px;
+}
+
+#result-count {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Empty grid, ready for future image cards */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+  gap: 18px;
+}
+
+/* 8. Empty-state message */
+#empty-state {
+  min-height: 230px;
+  margin-top: 20px;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px dashed #c5d0bd;
+  border-radius: 20px;
+  background: rgba(255, 254, 250, 0.65);
+}
+
+#empty-state h3 {
+  margin-bottom: 5px;
+  color: var(--forest);
+  font-size: 21px;
+}
+
+#empty-state p {
+  margin-top: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 9. Footer */
+footer {
+  padding: 22px 5%;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* 10. Responsive design for phones */
+@media (max-width: 600px) {
+  #site-header {
+    padding: 16px 5%;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+
+  main {
+    width: 90%;
+  }
+
+  #search-section {
+    padding-top: 45px;
+  }
+
+  #search-form {
+    gap: 5px;
+  }
+
+  #search-input {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  #search-button {
+    padding: 12px 14px;
+  }
+
+  #quick-picks p {
+    display: block;
+    margin-right: 0;
+  }
+
+  #gallery-section h2 {
+    font-size: 25px;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+    gap: 12px;
+  }
+
+  .empty-state {
+    min-height: 200px;
+    padding: 20px;
+  }
+}
