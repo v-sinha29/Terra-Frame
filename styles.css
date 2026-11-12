@@ -263,7 +263,7 @@ footer {
     gap: 12px;
   }
 
-  .empty-state {
+  #empty-state {
     min-height: 200px;
     padding: 20px;
   }
